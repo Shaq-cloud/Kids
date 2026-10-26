@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#f9f9ff">
+    <title>You did it! — LittleSteps</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen welcome-screen">
+    <main class="flex flex-1 flex-col items-center justify-center relative w-full px-margin-mobile pt-safe pb-safe text-center">
+      <section class="relative w-full max-w-lg rounded-xl bg-secondary-fixed p-space-lg shadow-[0_6px_0_0_#f9bd22]" aria-labelledby="congrats-title">
+        <span class="material-symbols-outlined absolute -top-4 right-6 text-secondary-container text-[36px]" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">auto_awesome</span>
+        <span class="material-symbols-outlined absolute bottom-6 left-5 text-primary-fixed-dim text-[28px]" aria-hidden="true">celebration</span>
+        <div class="mx-auto mb-space-md flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-primary-fixed shadow-[0_3px_0_0_#ccc3d8]">
+          <img class="h-full w-full object-cover" src="Shaq.png" alt="Prince the learning buddy celebrating">
+        </div>
+        <p class="font-label-lg text-label-lg text-on-secondary-container uppercase tracking-wider">Amazing work!</p>
+        <h1 id="congrats-title" class="mt-1 mb-3 font-headline-lg text-headline-lg text-primary">You did it!</h1>
+        <p class="mb-space-lg font-body-lg text-body-lg text-on-secondary-fixed">You answered every question. You’re a learning star!</p>
+        <div class="mb-space-md flex items-center justify-center gap-2" aria-label="Five stars earned">
+          <span class="material-symbols-outlined text-secondary-container text-[32px]" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+          <span class="material-symbols-outlined text-secondary-container text-[32px]" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+          <span class="material-symbols-outlined text-secondary-container text-[42px]" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+          <span class="material-symbols-outlined text-secondary-container text-[32px]" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+          <span class="material-symbols-outlined text-secondary-container text-[32px]" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+        </div>
+        <a class="flex min-h-[72px] w-full items-center justify-center gap-space-xs rounded-full bg-primary-container text-on-primary shadow-[0_6px_0_0_#5a00c6] active:translate-y-1 active:shadow-[0_2px_0_0_#5a00c6] transition-all" href="Page2.html">
+          <span class="font-display-mobile text-display-mobile text-[36px]"> Home </span>
+          <span class="material-symbols-outlined text-[34px]" aria-hidden="true">arrow_forward</span>
+        </a>
+      </section>
+    </main>
+    <script>
+      const playCelebration = async () => {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        let context;
+        try {
+          context = new AudioContextClass();
+          if (context.state === "suspended") await context.resume();
+          [523.25, 659.25, 783.99, 1046.5].forEach((frequency, index) => {
+            const start = context.currentTime + index * 0.12;
+            const oscillator = context.createOscillator();
+            const volume = context.createGain();
+            oscillator.type = "sine";
+            oscillator.frequency.value = frequency;
+            volume.gain.setValueAtTime(0.0001, start);
+            volume.gain.exponentialRampToValueAtTime(0.16, start + 0.025);
+            volume.gain.exponentialRampToValueAtTime(0.0001, start + 0.42);
+            oscillator.connect(volume).connect(context.destination);
+            oscillator.start(start);
+            oscillator.stop(start + 0.43);
+          });
+          window.setTimeout(() => context.close(), 1000);
+        } catch {
+          // Sound is optional when the browser or device does not support it.
+          context?.close();
+        }
+      };
+
+      window.addEventListener("load", playCelebration, { once: true });
+    </script>
+  </body>
+</html>

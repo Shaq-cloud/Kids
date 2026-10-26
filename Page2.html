@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24..48,400..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script><script src="scripts.js" defer></script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen selection:bg-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin-mobile flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs"><img loading="lazy" alt="LittleSteps learning buddy" class="h-8 w-8 rounded-full object-cover" data-learning-buddy-image src="Shaq.png"><span class="font-title text-title text-primary tracking-tight hidden sm:inline">LittleSteps</span><span class="font-title text-title text-on-surface truncate max-w-[110px] ml-1">Play Hub</span></div><div class="flex items-center bg-surface-container-lowest py-1.5 px-space-sm rounded-full shadow-[0_3px_0_0_#dce2f3]"><span class="material-symbols-outlined text-secondary-container text-[22px]">stars</span><span class="font-title text-title text-on-secondary-container ml-1 font-bold">12</span></div><div class="flex items-center gap-space-xs"><button aria-label="Parents Zone Locked" class="h-11 px-2.5 flex items-center gap-1 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors" title="Parent Lock Gate"><span class="material-symbols-outlined text-[18px]">lock</span><span class="font-label-md text-label-md hidden xs:inline">Parents</span></button><div class="p-0.5 rounded-full bg-surface-container-lowest shadow-[0_2px_0_0_#dce2f3]"><img loading="lazy" alt="Profile" class="w-8 h-8 rounded-full object-cover" src="image-1.jpg"></div></div></div></header><main class="flex flex-col relative w-full px-margin-mobile pt-20 pb-28 bg-surface min-h-screen"><div class="flex flex-col w-full max-w-md mx-auto space-y-space-md">
+<!-- Daily Star Mission Milestone Indicator -->
+
+<!-- Mascot Guidance Pod: Kofi's Voice & Warm Greeting -->
+<div class="play-hub-greeting relative bg-surface-container-lowest rounded-lg p-space-md shadow-[0_6px_0_0_#dce2f3] flex items-center gap-space-sm">
+<!-- Kofi Mascot Avatar -->
+<div class="relative flex-shrink-0">
+<div class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center p-1 shadow-[0_4px_0_0_#d2bbff]">
+<img alt="Your learning buddy" class="w-full h-full object-cover rounded-full" data-learning-buddy-image loading="lazy" src="Shaq.png">
+</div>
+<div class="absolute -bottom-1 -right-1 bg-secondary-container rounded-full w-6 h-6 flex items-center justify-center shadow-[0_2px_0_0_#b58400]">
+<span class="material-symbols-outlined text-on-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">sentiment_very_satisfied</span>
+</div>
+</div>
+<!-- Speech Bubble Content -->
+<div class="play-hub-copy flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="font-title text-title text-primary" data-learning-buddy-name>Prince</span>
+<span class="font-audio-caption text-audio-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">Says</span>
+</div>
+<p class="play-hub-message font-headline-lg-mobile text-headline-lg-mobile text-on-surface leading-tight tracking-tight">
+        Hi there! Are you ready to learn and play?
+      </p>
+</div>
+<!-- Interactive Speaker Cue (Child-friendly voice trigger) -->
+<button aria-label="Listen to your learning buddy" data-buddy-aria-template="Listen to {buddy} speak" class="flex-shrink-0 w-14 h-14 rounded-full bg-tertiary-fixed flex items-center justify-center shadow-[0_4px_0_0_#7bd0ff] active:translate-y-1 active:shadow-[0_1px_0_0_#7bd0ff] transition-all" id="voice-button">
+<span class="material-symbols-outlined text-tertiary text-[30px]" id="speaker-icon" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+<!-- Giant Primary Action Card: 'Let's Play!' Instant Joy Entry -->
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary via-primary-container to-surface-tint p-space-lg shadow-[0_8px_0_0_#5a00c6] flex flex-col items-center text-center">
+<!-- Soft Decorative Sparkles / Floating Circles -->
+<div class="absolute -top-6 -right-6 w-28 h-28 rounded-full bg-on-primary/10 blur-xl pointer-events-none"></div>
+<div class="absolute -bottom-8 -left-8 w-32 h-32 rounded-full bg-secondary-container/20 blur-xl pointer-events-none"></div>
+<div class="inline-flex items-center gap-1 bg-on-primary/20 backdrop-blur-sm px-space-sm py-1 rounded-full mb-space-sm">
+<span class="material-symbols-outlined text-secondary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-label-md text-on-primary tracking-wide uppercase">Next Adventure</span>
+</div>
+<h1 class="font-display-mobile text-display-mobile text-on-primary mb-space-md drop-shadow-sm">
+      Let's Play!
+    </h1>
+<!-- Glowing Chunky Push Button with Squishy Tactile Response -->
+<a aria-label="Start today's game" class="group relative w-24 h-24 rounded-full bg-secondary-container flex items-center justify-center shadow-[0_8px_0_0_#b58400] active:translate-y-1.5 active:shadow-[0_2px_0_0_#b58400] transition-all cursor-pointer" href="Page 3.html" id="play-button">
+<span class="material-symbols-outlined text-on-secondary text-[54px] ml-1.5 drop-shadow group-active:scale-95 transition-transform" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<!-- Subtle Pulsing Aura -->
+<span class="absolute inset-0 rounded-full animate-ping bg-secondary-container/30 pointer-events-none"></span>
+</a>
+<div class="mt-space-md flex items-center gap-1.5 text-on-primary-container">
+<span class="material-symbols-outlined text-[20px]">touch_app</span>
+<span class="font-title text-title">Tap to start now</span>
+</div>
+</div>
+<!-- Single Focused Learning Card: "Numbers 1-5" (Physical Rubber Toy Tile) -->
+<div class="relative bg-surface-container-lowest rounded-lg p-space-md shadow-[0_6px_0_0_#dce2f3] flex flex-col space-y-space-sm">
+<!-- Card Top Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-tertiary-container"></span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Number Journey</span>
+</div>
+<div class="bg-secondary-fixed text-on-secondary-fixed px-space-sm py-1 rounded-full font-title text-label-md flex items-center gap-1 shadow-[0_2px_0_0_#f9bd22]">
+<span class="">Start</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<!-- Illustrated Physical Blocks Preview Area -->
+<div class="relative w-full h-36 rounded-DEFAULT bg-surface-container overflow-hidden flex items-center justify-center">
+<img alt="Colorful blocks numbered one, two, and three" class="w-full h-full object-cover" data-alt="Vibrant friendly 3D smooth wooden toy blocks numbered 1, 2, and 3 sitting on a soft pastel mint and lilac carpet, bathed in gentle warm morning light, minimalist preschool learning scene." loading="lazy" src="image-7.jpg">
+<!-- Overlay Floating Badge for Low-Literacy Visual Recognition -->
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/95 backdrop-blur-sm px-space-sm py-1 rounded-full shadow-[0_2px_0_0_#dce2f3] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">shapes</span>
+<span class="font-title text-title text-on-surface">1, 2, 3...</span>
+</div>
+</div>
+<!-- Card Action Strip -->
+<div class="flex items-center justify-between pt-1">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Numbers 1 – 5</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Count colorful bouncy fruits!</p>
+</div>
+<a aria-label="Open the numbers lesson" class="w-14 h-14 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_4px_0_0_#5a00c6] active:translate-y-1 active:shadow-[0_1px_0_0_#5a00c6] transition-all" href="Page 3.html">
+<span class="material-symbols-outlined text-[28px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Number of Items Learning Card -->
+<section aria-labelledby="number-items-title" class="number-items-card relative bg-surface-container-lowest rounded-lg p-space-md shadow-[0_6px_0_0_#dce2f3] flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Number of Items</span>
+</div>
+<span class="number-items-status bg-primary-fixed text-primary px-space-sm py-1 rounded-full font-title text-label-md flex items-center gap-1" id="number-items-status"><span id="number-items-status-text">Let’s count</span><span class="material-symbols-outlined text-[16px]" id="number-items-status-icon" aria-hidden="true">auto_awesome</span></span>
+</div>
+<p class="number-items-lock-message hidden" id="number-items-lock-message">Finish Number Journey to unlock</p>
+<div class="number-items-image relative w-full h-36 rounded-DEFAULT bg-surface-container overflow-hidden flex items-center justify-center">
+<img alt="Three red apples on a tree beside the number three" class="number-items-art w-full h-full object-cover" loading="lazy" src="image-8.jpg">
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/95 backdrop-blur-sm px-space-sm py-1 rounded-full shadow-[0_2px_0_0_#dce2f3] flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[20px]" aria-hidden="true">nutrition</span><span class="font-title text-title text-on-surface">3 apples</span></div>
+<div class="absolute top-2 right-2 flex items-center gap-1.5 rounded-full bg-surface-container-lowest/95 py-1 pl-1 pr-2 shadow-sm"><img alt="" aria-hidden="true" class="h-7 w-7 rounded-full object-cover" data-learning-buddy-image src="Shaq.png"><span class="font-label-md text-label-md text-primary"><span data-learning-buddy-name>Prince</span> is here!</span></div>
+</div>
+<div class="flex items-center justify-between gap-3 pt-1">
+<div class="min-w-0"><h2 id="number-items-title" class="font-headline-md text-headline-md text-on-surface">Count the apples</h2><p class="font-body-md text-body-md text-on-surface-variant">Let’s count each one together!</p></div>
+<a aria-label="Explore counting items" class="number-items-link w-14 h-14 shrink-0 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-[0_4px_0_0_#f59e0b] active:translate-y-1 active:shadow-[0_1px_0_0_#f59e0b] transition-all" href="Page 3.html"><span class="material-symbols-outlined text-[28px]" id="number-items-link-icon" aria-hidden="true">arrow_forward</span></a>
+</div>
+</section>
+<!-- Tactile Sound Effect & Interaction Script -->
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_16px_rgba(115,46,228,0.06)]" data-active-classes="bg-primary-container text-on-primary-container shadow-[0_4px_0_0_#5a00c6]"><div class="flex justify-around items-center h-20 px-margin-mobile max-w-md mx-auto"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[76px] h-14 rounded-lg transition-all active:translate-y-1 bg-primary-container text-on-primary-container shadow-[0_4px_0_0_#5a00c6]" data-path="play-hub" href="Page2.html"><span class="material-symbols-outlined text-[28px]">cottage</span><span class="font-label-md text-label-md mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[76px] h-14 rounded-lg text-on-surface-variant transition-all active:translate-y-1" data-path="math-blocks" href="Page 3.html"><span class="material-symbols-outlined text-[28px]">counter_3</span><span class="font-label-md text-label-md mt-0.5">Numbers</span></a><a class="flex flex-col items-center justify-center min-w-[76px] h-14 rounded-lg text-on-surface-variant transition-all active:translate-y-1" data-path="star-bag" href=""><span class="material-symbols-outlined text-[28px]">military_tech</span><span class="font-label-md text-label-md mt-0.5">Awards</span></a></div></nav>
+
+</body></html>

@@ -1,0 +1,841 @@
+/* Shared mobile-first styles for LittleSteps. */
+@layer base {
+  html,
+  body {
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9ff;
+  }
+
+  body {
+    overscroll-behavior-y: contain;
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  color: #151c27;
+  font-family: "Nunito Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.preview-redirect {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.preview-redirect-card {
+  max-width: 28rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0 8px 0 #dce2f3;
+}
+
+.preview-redirect a {
+  color: #630ed4;
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%;
+}
+
+.image-unavailable img {
+  display: none;
+}
+
+.image-unavailable::after {
+  content: "✨";
+  display: grid;
+  min-width: 3rem;
+  min-height: 3rem;
+  place-items: center;
+  color: #630ed4;
+  font-size: 2rem;
+}
+
+.number-items-art {
+  object-position: right center;
+  transform: scale(2.5);
+  transform-origin: right 30%;
+}
+
+.lesson-video {
+  display: block;
+  background: #dce2f3;
+}
+
+/* Number activity answers: uniform, square, easy-to-tap choices. */
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.5rem, 2.5vw, 1rem);
+}
+
+#cards-container.hidden,
+.draw-answer-panel.hidden {
+  display: none;
+}
+
+#cards-container .choice-card {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 1.25rem;
+  background-color: #f0f3ff;
+  box-shadow: 0 5px 0 #dce2f3;
+}
+
+#cards-container .choice-card > div:first-child {
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+#cards-container .choice-card > div:first-child > div:first-child {
+  width: auto;
+  height: auto;
+  flex-shrink: 1;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#cards-container .choice-card > div:first-child > div:first-child > span {
+  color: #630ed4;
+  font-size: clamp(2.5rem, 12vw, 4rem);
+  line-height: 1;
+}
+
+#cards-container .choice-card > div:first-child > div:last-child {
+  display: none;
+}
+
+#cards-container .choice-card > .status-indicator {
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+#cards-container .choice-card.is-correct {
+  background-color: #ffdf9f;
+  box-shadow: 0 5px 0 #f9bd22;
+  outline: 3px solid #f9bd22;
+  outline-offset: 2px;
+  transform: scale(1.04);
+}
+
+#cards-container .choice-card.is-wrong {
+  animation: answer-wiggle 450ms ease-in-out;
+}
+
+.draw-answer-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0 6px 0 #dce2f3;
+}
+
+.question-swipe-out {
+  animation: question-swipe-left 220ms ease-in both;
+  pointer-events: none;
+}
+
+.question-swipe-in {
+  animation: question-swipe-enter 280ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+@keyframes question-swipe-left {
+  to { opacity: 0; transform: translateX(-2.5rem); }
+}
+
+@keyframes question-swipe-enter {
+  from { opacity: 0; transform: translateX(2.5rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.draw-answer-panel h2,
+.draw-answer-panel p {
+  margin: 0;
+}
+
+.draw-canvas-wrap {
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid #d2bbff;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+#numberCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.draw-feedback {
+  min-height: 1.5rem;
+  color: #4a4455;
+  font-weight: 700;
+}
+
+.draw-needs-practice .draw-feedback {
+  color: #630ed4;
+  animation: answer-wiggle 350ms ease-in-out;
+}
+
+.draw-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.draw-actions button {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.draw-clear-button {
+  flex: 1;
+  background: #f0f3ff;
+  color: #630ed4;
+  box-shadow: 0 3px 0 #dce2f3;
+}
+
+.draw-check-button {
+  flex: 1.4;
+  background: #ffc329;
+  color: #261a00;
+  box-shadow: 0 3px 0 #f9bd22;
+}
+
+.quiz-progress-dots {
+  display: inline-flex;
+}
+
+.quiz-progress-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #dce2f3;
+  transition: width 180ms ease, background-color 180ms ease;
+}
+
+.quiz-progress-dot.is-complete {
+  background: #7c3aed;
+}
+
+.quiz-progress-dot.is-current {
+  width: 1.1rem;
+  background: #f9bd22;
+}
+
+@keyframes answer-wiggle {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-0.35rem); }
+  75% { transform: translateX(0.35rem); }
+}
+
+@media (max-width: 360px) {
+  #cards-container .choice-card {
+    border-radius: 1rem;
+  }
+
+  #cards-container .choice-card > div:first-child > div:first-child > span {
+    font-size: 2.5rem;
+  }
+}
+
+.lesson-buddy-float {
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  top: 75vh;
+  top: 75dvh;
+  width: 4.5rem;
+  height: 4.5rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  animation: buddy-float 2.8s ease-in-out infinite, buddy-glow 2.8s ease-in-out infinite;
+}
+
+.lesson-buddy-float:focus-visible {
+  outline: 3px solid #005574;
+  outline-offset: 4px;
+}
+
+.lesson-buddy-float.is-speaking .lesson-buddy-sound {
+  animation: star-bob 500ms ease-in-out infinite alternate;
+}
+
+@keyframes buddy-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.55rem); }
+}
+
+@keyframes buddy-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(124, 58, 237, 0)); }
+  50% { filter: drop-shadow(0 0.35rem 0.65rem rgba(124, 58, 237, 0.3)); }
+}
+
+#progressBar,
+#starScrubber {
+  transition: left 100ms linear, width 100ms linear;
+}
+
+#progressTrack {
+  touch-action: none;
+}
+
+button,
+a,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid #630ed4;
+  outline-offset: 3px;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin-inline: auto;
+}
+
+/* Keep the original kid-friendly four-choice layout usable on narrow phones. */
+#class-selector-group,
+#buddy-selector-group {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.class-card,
+.buddy-btn {
+  min-width: 0;
+}
+
+.relative.flex.items-center.gap-space-sm > .relative.flex-1 {
+  min-width: 0;
+}
+
+.class-card > span:first-of-type {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  text-align: center;
+}
+
+/* Welcome screen: roomier cards, clearer sections, and larger tap targets. */
+.welcome-screen {
+  background-image: radial-gradient(circle at 8% 18%, rgba(210, 187, 255, 0.2) 0 0.35rem, transparent 0.4rem), radial-gradient(circle at 94% 32%, rgba(255, 223, 159, 0.35) 0 0.45rem, transparent 0.5rem);
+  background-attachment: fixed;
+}
+
+.buddy-face-image {
+  object-position: center 30%;
+}
+
+.number-items-card.is-locked {
+  filter: grayscale(0.85);
+  opacity: 0.68;
+}
+
+.number-items-card.is-locked .number-items-link {
+  pointer-events: none;
+}
+
+.number-items-lock-message {
+  margin: -0.5rem 0 0;
+  color: #4a4455;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  body:has(#voice-button) > header > div {
+    min-height: 4.5rem;
+    height: auto;
+    gap: 0.4rem;
+    padding-inline: 0.75rem;
+  }
+
+  body:has(#voice-button) > header > div > div:first-child {
+    min-width: 0;
+    gap: 0.3rem;
+  }
+
+  body:has(#voice-button) > header > div > div:first-child > img {
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+  }
+
+  body:has(#voice-button) > header > div > div:first-child > span:last-child {
+    max-width: 4.5rem;
+    margin-left: 0;
+    font-size: 0.875rem;
+  }
+
+  body:has(#voice-button) > header > div > div:nth-child(2),
+  body:has(#voice-button) > header > div > div:last-child {
+    flex-shrink: 0;
+  }
+
+  body:has(#voice-button) > header > div > div:last-child > button {
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  body:has(#voice-button) > main {
+    padding-inline: 0.75rem;
+  }
+
+  body:has(#voice-button) > main > div:first-child {
+    gap: 0.875rem;
+  }
+
+  .play-hub-greeting {
+    display: grid !important;
+    grid-template-columns: 3.5rem minmax(0, 1fr) 2.75rem;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.875rem;
+  }
+
+  .play-hub-greeting > div:first-child > div:first-child {
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0.15rem;
+  }
+
+  .play-hub-copy {
+    display: contents;
+  }
+
+  .play-hub-copy > div:first-child {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0;
+  }
+
+  .play-hub-message {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    font-size: clamp(1.15rem, 5vw, 1.3rem);
+    line-height: 1.3;
+    text-align: left;
+    overflow-wrap: normal;
+  }
+
+  .play-hub-greeting > #voice-button {
+    grid-column: 3;
+    grid-row: 1;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+.welcome-screen > header > div {
+  min-height: 5.25rem;
+  height: auto;
+  padding-block: 0.5rem;
+}
+
+.welcome-title-wrap {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+.welcome-screen > header h1 {
+  font-size: clamp(1.5rem, 6vw, 1.875rem);
+  line-height: 1.1;
+}
+
+.welcome-subtitle {
+  margin: 0.15rem 0 0;
+  color: #4a4455;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.welcome-spark {
+  position: absolute;
+  top: -0.45rem;
+  right: -1.5rem;
+  color: #f9bd22;
+  font-size: 1.15rem;
+  animation: welcome-twinkle 1.8s ease-in-out infinite;
+}
+
+.welcome-star-count {
+  min-width: 3.25rem;
+  min-height: 2.5rem;
+  justify-content: center;
+  animation: star-bob 2.4s ease-in-out infinite;
+}
+
+.welcome-main {
+  padding-top: 6.5rem !important;
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+.welcome-screen > main > div:first-child {
+  width: 100%;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-bottom: 1.5rem;
+  gap: 2.5rem;
+}
+
+.welcome-screen > main > div:first-child > div:first-child {
+  gap: 1rem;
+  margin-bottom: 0;
+  padding: 1.125rem;
+  border-radius: 1.5rem;
+  animation: welcome-rise 500ms ease-out both;
+}
+
+.welcome-screen > main > div:first-child > div:first-child > .relative.flex-1 {
+  padding: 1rem;
+  border-radius: 1.25rem;
+}
+
+.welcome-screen > main > div:first-child > div:first-child > .relative.flex-1 p:last-child {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.welcome-screen > main > div:first-child > div:nth-child(2),
+.welcome-screen > main > div:first-child > div:nth-child(3) {
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+.welcome-section-heading {
+  align-items: center;
+}
+
+.welcome-hint {
+  flex-shrink: 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: #f0f3ff;
+  white-space: nowrap;
+}
+
+.welcome-screen > main > div:first-child > div:nth-child(2) > div:first-child,
+.welcome-screen > main > div:first-child > div:nth-child(3) > div:first-child {
+  gap: 0.5rem;
+  padding-inline: 0.25rem;
+}
+
+.welcome-screen > main > div:first-child > div:nth-child(2) h2,
+.welcome-screen > main > div:first-child > div:nth-child(3) h2 {
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+  line-height: 1.25;
+}
+
+#class-selector-group,
+#buddy-selector-group {
+  gap: clamp(0.5rem, 2vw, 0.875rem);
+}
+
+.class-card {
+  min-height: 9rem;
+  height: auto !important;
+  gap: 0.4rem;
+  padding: 0.875rem 0.5rem !important;
+  border-radius: 1.25rem !important;
+  animation: welcome-rise 500ms ease-out both;
+}
+
+.class-card:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.class-card:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.class-card:nth-child(4) {
+  animation-delay: 170ms;
+}
+
+.class-card.selected {
+  transform: translateY(-0.2rem) rotate(-1deg);
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+.class-card:active,
+.buddy-btn:active {
+  transform: scale(0.96);
+}
+
+.class-card > span:first-of-type {
+  font-size: clamp(1.25rem, 6vw, 2rem);
+  line-height: 1.15;
+}
+
+.class-card > span:first-of-type strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1.35em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.class-card .class-decoration {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.class-card > div:not(.check-stamp) {
+  display: none;
+}
+
+.buddy-btn {
+  min-height: 8.25rem;
+  gap: 0.75rem;
+  padding: 0.75rem 0.35rem;
+  border-radius: 1.25rem;
+  animation: welcome-rise 550ms ease-out both;
+}
+
+.buddy-btn:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.buddy-btn:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.buddy-btn:nth-child(4) {
+  animation-delay: 180ms;
+}
+
+.buddy-btn[aria-checked="true"] {
+  transform: translateY(-0.2rem);
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+.buddy-btn .w-16,
+.buddy-btn [class~="w-16"] {
+  width: clamp(4rem, 17vw, 4.75rem);
+  height: clamp(4rem, 17vw, 4.75rem);
+}
+
+.buddy-btn > span:last-child {
+  font-size: clamp(0.75rem, 3.5vw, 0.875rem);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.welcome-screen > main > div:first-child > div:last-child {
+  gap: 0.875rem;
+  margin-top: 0;
+}
+
+.welcome-screen > main > div:first-child > div:last-child > button {
+  min-height: 5rem;
+  height: auto;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-size: 1.125rem;
+  box-shadow: 0 7px 0 #f59e0b, 0 12px 22px rgba(99, 14, 212, 0.12);
+}
+
+.welcome-screen > main > div:first-child > div:last-child > div {
+  line-height: 1.5;
+}
+
+@keyframes welcome-rise {
+  from { opacity: 0; transform: translateY(0.6rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes welcome-twinkle {
+  0%, 100% { transform: rotate(0) scale(0.85); }
+  50% { transform: rotate(18deg) scale(1.15); }
+}
+
+@keyframes star-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.15rem); }
+}
+
+@media (max-width: 400px) {
+  .welcome-screen > main > div:first-child > div:first-child {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .welcome-screen > main > div:first-child > div:first-child .w-20 {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .welcome-screen > main > div:first-child > div:first-child > .relative.flex-1 {
+    padding: 0.75rem;
+  }
+
+  .welcome-screen > main > div:first-child > div:first-child > .relative.flex-1 > div.flex {
+    flex-wrap: wrap;
+  }
+
+  .welcome-screen > main > div:first-child > div:first-child > .relative.flex-1 > div.flex > .min-w-0 {
+    flex-basis: 100%;
+  }
+
+  .welcome-screen > main > div:first-child > div:first-child button.w-14 {
+    margin-left: auto;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .welcome-screen > main > div:first-child > div:first-child p:last-child {
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 360px) {
+  #class-selector-group,
+  #buddy-selector-group {
+    gap: 0.25rem;
+  }
+
+  .buddy-btn {
+    padding-inline: 0.25rem;
+  }
+
+  .buddy-btn .w-16,
+  .buddy-btn [class~="w-16"] {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .welcome-main {
+    padding-inline: 0.75rem;
+  }
+
+  .welcome-screen > main > div:first-child > div:first-child {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .welcome-screen > main > div:first-child > div:first-child .w-20 {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .welcome-screen > main > div:first-child > div:first-child .w-14 {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .class-card {
+    min-height: 8rem;
+  }
+
+  .buddy-btn {
+    min-height: 7.5rem;
+  }
+
+  .buddy-btn .w-16,
+  .buddy-btn [class~="w-16"] {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+@media (min-width: 640px) {
+  main {
+    max-width: 48rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    max-width: 56rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .lesson-buddy-float {
+    animation: none;
+  }
+}

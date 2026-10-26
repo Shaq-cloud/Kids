@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24..48,400..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><button aria-label="Go Back" class="w-12 h-12 rounded-full bg-surface-container-low text-primary flex items-center justify-center shadow-[0_3px_0_0_#dce2f3] active:translate-y-1 transition-all" data-action="go-back" type="button"><span class="material-symbols-outlined text-[26px]">arrow_back</span></button><img alt="LittleSteps learning buddy" class="h-8 w-auto object-contain hidden xs:inline" src="image-2.jpg"></div><h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface truncate">Activity Play</h1><div class="flex items-center gap-space-xs"><div class="flex items-center bg-surface-container-lowest py-1 px-space-xs rounded-full shadow-[0_2px_0_0_#dce2f3]"><span class="material-symbols-outlined text-secondary-container text-[20px]">stars</span><span class="font-title text-title text-on-secondary-container ml-0.5">12</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="assets/image-1.jpg"></div></div></header><main class="flex flex-col relative w-full px-margin-mobile pt-20 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-8">
+<!-- Progress & Stepper Bar -->
+<div class="flex items-center justify-between mb-4 px-1">
+<div class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded-full shadow-[0_2px_0_0_#dce2f3]" aria-live="polite">
+<span class="quiz-progress-dots flex items-center gap-1" id="quizProgressDots" aria-hidden="true"></span>
+<span class="font-label-md text-label-md text-on-surface-variant ml-1" id="quizProgress">Question 1 of 5</span>
+</div>
+
+</div>
+<!-- Kofi Voice Prompt Hero Pod -->
+<div class="relative bg-surface-container-low rounded-lg p-space-md mb-space-lg shadow-[0_4px_0_0_#dce2f3] flex flex-col gap-3">
+<!-- Decorative Floating Shapes -->
+<div class="absolute -top-2 right-6 w-5 h-5 rounded-full bg-secondary-fixed opacity-70 pointer-events-none"></div>
+<div class="absolute bottom-3 left-4 w-3 h-3 rounded-full bg-primary-fixed-dim opacity-60 pointer-events-none"></div>
+<div class="flex items-center">
+<!-- Speech Bubble Container -->
+<div class="flex-1 relative bg-surface-container-lowest p-3.5 rounded-xl shadow-[0_3px_0_0_#dce2f3] flex flex-col justify-center">
+<!-- Speech Bubble Left Tail -->
+<div class="absolute -left-2.5 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[10px] border-r-surface-container-lowest"></div>
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider"><span data-learning-buddy-name>Prince</span> asks:</span>
+<!-- Audio Waves Indicator -->
+<div class="flex items-center gap-0.5 h-3" id="audio-wave">
+<span class="w-1 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="w-1 h-3 rounded-full bg-primary-container animate-pulse delay-100"></span>
+<span class="w-1 h-1.5 rounded-full bg-primary-container animate-pulse delay-200"></span>
+</div>
+</div>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface leading-snug" id="questionPrompt" aria-live="polite">
+          “Can you find number 3?”
+        </p>
+</div>
+</div>
+</div>
+<!-- Activity Objective Sub-banner -->
+<div class="flex items-center justify-center gap-2 mb-space-md text-center">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">touch_app</span>
+<span class="font-title text-title text-on-surface-variant" id="answerInstruction">Touch the card that matches!</span>
+</div>
+<!-- 3 Large Tappable Answer Cards Stack -->
+<div class="flex flex-col gap-space-md w-full" id="cards-container">
+<!-- OPTION A: Number 1 -->
+<div aria-label="Option 1" class="choice-card relative w-full bg-surface-container-lowest rounded-lg p-space-md shadow-[0_6px_0_0_#dce2f3] active:translate-y-1 active:shadow-[0_2px_0_0_#dce2f3] cursor-pointer transition-all flex items-center justify-between select-none" data-number="1" role="button" tabindex="0">
+<!-- Left: Giant Tactile Number Badge -->
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-20 h-20 rounded-lg bg-surface-container-low text-primary flex items-center justify-center shadow-[0_4px_0_0_#dce2f3] flex-shrink-0">
+<span class="font-display text-display text-primary leading-none">1</span>
+</div>
+<!-- Center: Visual Item Representation -->
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface"><br></span>
+<span class="font-audio-caption text-audio-caption text-outline"><br></span>
+</div>
+</div>
+<!-- Right: Playful Pictogram -->
+
+<!-- State Indicator Pill (Dynamic via JS) -->
+<div class="status-indicator hidden absolute -top-2.5 -right-2 w-8 h-8 rounded-full bg-error text-on-error items-center justify-center shadow-[0_2px_0_0_#93000a]">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</div>
+</div>
+<!-- OPTION B: Number 3 (Correct Choice) -->
+<div aria-label="Option 3" class="choice-card relative w-full rounded-lg p-space-md shadow-[0_6px_0_0_#dce2f3] active:translate-y-1 active:shadow-[0_2px_0_0_#dce2f3] cursor-pointer transition-all flex items-center justify-between select-none" data-number="3" role="button" tabindex="0">
+<!-- Left: Giant Tactile Number Badge -->
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-20 h-20 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shadow-[0_4px_0_0_#f9bd22] flex-shrink-0">
+<span class="font-display text-display text-secondary leading-none">3</span>
+</div>
+<!-- Center: Visual Item Representation -->
+<div class="flex flex-col">
+
+
+</div>
+</div>
+<!-- Right: Playful Pictogram Group -->
+
+<!-- State Indicator Pill (Dynamic via JS) -->
+<div class="status-indicator absolute -top-2.5 -right-2 w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container items-center justify-center shadow-[0_2px_0_0_#6f5100] flex animate-bounce">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+</div>
+<!-- OPTION C: Number 5 -->
+<div aria-label="Option 5" class="choice-card relative w-full bg-surface-container-lowest rounded-lg p-space-md shadow-[0_6px_0_0_#dce2f3] active:translate-y-1 active:shadow-[0_2px_0_0_#dce2f3] cursor-pointer transition-all flex items-center justify-between select-none" data-number="5" role="button" tabindex="0">
+<!-- Left: Giant Tactile Number Badge -->
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-20 h-20 rounded-lg bg-surface-container-low text-primary flex items-center justify-center shadow-[0_4px_0_0_#dce2f3] flex-shrink-0">
+<span class="font-display text-display text-primary leading-none">5</span>
+</div>
+<!-- Center: Visual Item Representation -->
+<div class="flex flex-col">
+
+
+</div>
+</div>
+<!-- Right: Playful Pictogram Group -->
+
+<!-- State Indicator Pill (Dynamic via JS) -->
+<div class="status-indicator hidden absolute -top-2.5 -right-2 w-8 h-8 rounded-full bg-error text-on-error items-center justify-center shadow-[0_2px_0_0_#93000a]">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</div>
+</div>
+</div>
+<section class="draw-answer-panel hidden" id="drawAnswerPanel" aria-labelledby="drawTitle">
+<div class="draw-canvas-wrap">
+<canvas aria-label="Drawing area for the number five" id="numberCanvas" width="600" height="300"></canvas>
+</div>
+<div class="draw-actions">
+<button class="draw-check-button" id="checkDrawingBtn" type="button"><span class="material-symbols-outlined" aria-hidden="true">check</span>Check answer</button>
+</div>
+</section>
+<!-- Floating Success Celebration Card (Reveals upon selecting 3) -->
+<div class="mt-space-lg bg-secondary-fixed text-on-secondary-fixed rounded-xl p-space-md shadow-[0_6px_0_0_#f9bd22] flex-col items-center text-center animate-fade-in flex" id="celebration-pod">
+<div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-2 shadow-[0_3px_0_0_#6f5100]">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold mb-1" id="celebrationMessage">Super Job!</h3>
+
+<button id="nextActivityBtn" class="w-full h-16 bg-primary-container text-on-primary rounded-full font-headline-md text-headline-md flex items-center justify-center gap-2 shadow-[0_6px_0_0_#5a00c6] active:translate-y-1 active:shadow-[0_2px_0_0_#5a00c6] transition-all" type="button">
+<span class="">Next Adventure</span>
+<span class="material-symbols-outlined text-[28px]">arrow_forward</span>
+</button>
+</div>
+<!-- Bottom Gentle Helper Cloud -->
+<div class="mt-space-lg flex items-center justify-center">
+
+</div>
+</div>
+<script src="scripts.js" defer></script></main>
+<button aria-label="Listen to your learning buddy" data-buddy-aria-template="Listen to {buddy}" class="lesson-buddy-float group fixed z-50 flex items-center justify-center rounded-full bg-primary-fixed p-1.5 shadow-[0_5px_0_0_#7c3aed] transition-transform active:translate-y-1 active:shadow-[0_2px_0_0_#7c3aed]" id="kofi-avatar-btn" type="button">
+<img alt="Your learning buddy" class="h-full w-full rounded-full object-cover" data-learning-buddy-image src="Shaq.png">
+<span class="lesson-buddy-sound absolute -right-1 -bottom-1 flex h-8 w-8 items-center justify-center rounded-full bg-tertiary-fixed text-tertiary shadow-[0_2px_0_0_#7bd0ff] transition-transform group-hover:scale-110" id="sound-badge" aria-hidden="true"><span class="material-symbols-outlined text-[18px]">volume_up</span></span>
+</button>
+
+</body></html>
